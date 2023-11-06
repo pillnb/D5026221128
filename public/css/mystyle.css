@@ -1,0 +1,22 @@
+h3 {
+    color :rgb(148, 88, 203) ;
+    text-align: center;
+}
+
+p {
+    color :rgb(122, 107, 111) ;
+    text-align: justify;
+}
+body {
+    background:rgb(212, 232, 194);
+ }
+
+ .ratakanan  {
+    text-align: right;
+    color:rgb(31, 26, 188);
+    font-weight: bold;
+ }
+
+ .kotak1 {
+    border-style:solid;
+ }

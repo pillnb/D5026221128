@@ -1,0 +1,163 @@
+body {
+    background-image: "img/background.png";
+    /* background-color: blue; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 255, 255);
+    width: 100vw;
+    font-family: inter, sans-serif;
+}
+
+header {
+    width: 95%;
+    max-width: 788px;
+    margin-top: 10px;
+    display: block;
+    padding: 12px;
+}
+
+.container {
+    width: 100%;
+    margin: 10px;
+    display: block;
+    text-align: center;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    text-align: center;
+    color: #20242c;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(240, 240, 240);
+}
+
+.logo>img {
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.button {
+
+    background-color: #20242c;
+    border: none;
+    color: white;
+    padding: 3px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 15px auto;
+    cursor: pointer;
+    border-radius: 30px;
+    max-width: 665px;
+    position:relative;
+}
+
+.button:hover {
+    color: rgb(210, 232, 35);
+    transition: cubic-bezier(0.37, 1.22, 0.62, 1.4) 0.2s;
+    transform: scale(1.04);
+    box-shadow: 1px 2px 3px rgb(28, 32, 36);
+
+}
+
+.icon1 {
+    background-image: url("howtoenjoy.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon2 {
+    background-image: url("gojek.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.titik-tiga {
+    display: none;
+}
+
+.button:hover > .titik-tiga {
+    color:rgb(210, 232, 35);
+    position: absolute;
+    margin:auto;
+    margin-right: 3px;
+    font-size: 17px;
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    right: 2px;
+    display: block;
+    font-weight: 170;
+    padding: 7px ;
+}
+
+.titik-tiga:hover {
+    background-color: #1a1e25;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.titik-tiga2 {
+    color:black;
+    margin: auto;
+    font-size: 16px;
+    width: 30px;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    position: absolute; /* Absolute positioning for the text */
+    top: 35%; /* Vertically center the text */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.circle-button {
+    width: 40px;
+    height: 40px;
+    background-color:  white;
+    border-radius: 50%;
+    position: absolute;
+    right: 20%;
+    top: 10%;
+    transform: translateY(-50%);
+}
+
+
