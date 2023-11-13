@@ -8,11 +8,13 @@
 	<h3>www.malasngoding.com</h3>
 	<p>Seri Tutorial Laravel Lengkap Dari Dasar</p>
 	<p>Ini adalah view blog. ada di route blog.</p>
-    <p>
+    {{-- <p>
         Nama: {{$nama}}  -
         Alamat: {{$alamat}}  -
         Umur: {{$umur}}
-    </p>
+    </p> --}}
+
+    <a href ="/pegawai/{{ date('D M Y')}}">Klik disini</a>
 
 </body>
 </html>
