@@ -63,7 +63,7 @@
                                     <li><a href="/berita">Tugas berita</a></li>
                                     <li><a href="/blog">Tugas blog</a></li>
                                     <li><a href="/hello">Tugas hello</a></li>
-                                    <li><a href="/index">Tugas index ets</a></li>
+                                    <li><a href="/uts">Tugas index ets</a></li>
                                     <li><a href="/js1">Tugas js1</a></li>
                                     <li><a href="/js2">Tugas js2</a></li>
                                     <li><a href="/latihan1">Tugas latihan1</a></li>
