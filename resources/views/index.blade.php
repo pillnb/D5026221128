@@ -1,78 +1,41 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tutorial Membuat CRUD Pada Laravel - www.malasngoding.com</title>
+</head>
+<body>
 
-namespace App\Http\Controllers;
+	<h2>www.malasngoding.com</h2>
+	<h3>Data Pegawai</h3>
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+	<a href="/pegawai/tambah"> + Tambah Pegawai Baru</a>
+
+	<br/>
+	<br/>
+
+	<table border="1">
+		<tr>
+			<th>Nama</th>
+			<th>Jabatan</th>
+			<th>Umur</th>
+			<th>Alamat</th>
+			<th>Opsi</th>
+		</tr>
+		@foreach($pegawai as $p)
+		<tr>
+			<td>{{ $p->pegawai_nama }}</td>
+			<td>{{ $p->pegawai_jabatan }}</td>
+			<td>{{ $p->pegawai_umur }}</td>
+			<td>{{ $p->pegawai_alamat }}</td>
+			<td>
+				<a href="/pegawai/edit/{{ $p->pegawai_id }}">Edit</a>
+				|
+				<a href="/pegawai/hapus/{{ $p->pegawai_id }}">Hapus</a>
+			</td>
+		</tr>
+		@endforeach
+	</table>
 
 
-class PegawaiController extends Controller
-{
-	public function index()
-	{
-    	// mengambil data dari table pegawai
-		$pegawai = DB::table('pegawai')->get();
-
-    	// mengirim data pegawai ke view index
-		return view('index',['pegawai' => $pegawai]);
-
-	}
-
-	// method untuk menampilkan view form tambah pegawai
-	public function tambah()
-	{
-
-		// memanggil view tambah
-		return view('tambah');
-
-	}
-
-	// method untuk insert data ke table pegawai
-	public function store(Request $request)
-	{
-		// insert data ke table pegawai
-		DB::table('pegawai')->insert([
-			'pegawai_nama' => $request->nama,
-			'pegawai_jabatan' => $request->jabatan,
-			'pegawai_umur' => $request->umur,
-			'pegawai_alamat' => $request->alamat
-		]);
-		// alihkan halaman ke halaman pegawai
-		return redirect('/pegawai');
-
-	}
-
-	// method untuk edit data pegawai
-	public function edit($id)
-	{
-		// mengambil data pegawai berdasarkan id yang dipilih
-		$pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
-		// passing data pegawai yang didapat ke view edit.blade.php
-		return view('edit',['pegawai' => $pegawai]);
-
-	}
-
-	// update data pegawai
-	public function update(Request $request)
-	{
-		// update data pegawai
-		DB::table('pegawai')->where('pegawai_id',$request->id)->update([
-			'pegawai_nama' => $request->nama,
-			'pegawai_jabatan' => $request->jabatan,
-			'pegawai_umur' => $request->umur,
-			'pegawai_alamat' => $request->alamat
-		]);
-		// alihkan halaman ke halaman pegawai
-		return redirect('/pegawai');
-	}
-
-	// method untuk hapus data pegawai
-	public function hapus($id)
-	{
-		// menghapus data pegawai berdasarkan id yang dipilih
-		DB::table('pegawai')->where('pegawai_id',$id)->delete();
-
-		// alihkan halaman ke halaman pegawai
-		return redirect('/pegawai');
-	}
-}
+</body>
+</html>
