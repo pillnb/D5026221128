@@ -101,3 +101,14 @@ Route::get('/pegawai/hapus/{id}','App\Http\Controllers\PegawaiController@hapus')
 
 Route::get('/pegawai/cari','App\Http\Controllers\PegawaiController@cari');
 Route::get('/pegawai/view/{id}','App\Http\Controllers\PegawaiController@view');
+
+//route CRUD Sandal
+Route::get('/sandal','App\Http\Controllers\SandalController@index');
+Route::get('/sandal/tambahSandal','App\Http\Controllers\SandalController@tambah');
+Route::post('/sandal/store','App\Http\Controllers\SandalController@store');
+Route::get('/sandal/edit/{kodesandal}','App\Http\Controllers\SandalController@edit');
+Route::post('/sandal/update','App\Http\Controllers\SandalController@update');
+Route::get('/sandal/hapus/{kodesandal}','App\Http\Controllers\SandalController@hapus');
+
+Route::get('/sandal/cari','App\Http\Controllers\SandalController@cari');
+Route::get('/sandal/view/{kodesandal}','App\Http\Controllers\SandalController@view');
