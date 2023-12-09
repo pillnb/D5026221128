@@ -61,7 +61,7 @@
         <br />
         <hr />
         <footer>
-            <p>&copy; <a href="https://www.malasngoding.com">web malas ngoding ngik</a>. 2023</p>
+            <p>&copy; <a href="https://www.malasngoding.com">dibuat oleh vaskya nabila</a>. 2023</p>
         </footer>
     </div>
 

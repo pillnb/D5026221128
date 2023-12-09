@@ -23,13 +23,15 @@
 
     <table class="table table-striped table-hover">
         <tr style="text-align: center;">
+            <th>Kode Sandal</th>
             <th>Merk Sandal</th>
             <th>Stock Sandal</th>
             <th>Ketersediaan</th>
             <th>Opsi</th>
         </tr>
         @foreach ($sandal as $s)
-            <tr>
+            <tr style="text-align: center;">
+                <td>{{ $s->kodesandal }}</td>
                 <td>{{ $s->merksandal }}</td>
                 <td>{{ $s->stocksandal }}</td>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
