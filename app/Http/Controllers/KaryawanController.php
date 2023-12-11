@@ -31,14 +31,12 @@ class KaryawanController extends Controller
 	// method untuk insert data ke table karyawan
 	public function store(Request $request)
     {
-        try {
-            // Validasi data permintaan
-            $request->validate([
-                'kodepegawai' => 'required|max:5|unique:karyawan,kodepegawai',
-                'namalengkap' => 'required|max:50',
-                'divisi' => 'required|max:20',
-                'departemen' => 'required|max:20',
-            ]);
+        $existKaryawan = DB::table('karyawan')
+        ->where('kodepegawai', $request->kodepegawai)
+        ->first();
+        if ($existKaryawan) {
+            return redirect('/karyawan')->with('error', 'Kode Pegawai sudah ada!');
+    }
 
             // Insert data ke tabel karyawan
             DB::table('karyawan')->insert([
@@ -48,16 +46,8 @@ class KaryawanController extends Controller
                 'departemen' => $request->departemen
             ]);
 
-            return redirect('/karyawan')->with('success', 'Karyawan berhasil ditambahkan');
-        } catch (QueryException $e) {
-            if ($e->getCode() == '23000') {
-                dd($e->getMessage());
-                return redirect('/karyawan')->with('error', 'Kode Pegawai sudah ada. Silakan masukkan kode pegawai yang berbeda.');
-            }
+            return redirect('/karyawan')->with('success', 'Data berhasil disimpan!');
 
-            // Jika bukan error Duplicate entry, lempar kembali exception
-            throw $e;
-        }
     }
 
 
