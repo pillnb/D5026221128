@@ -117,3 +117,12 @@ Route::get('/sandal/hapus/{kodesandal}','App\Http\Controllers\SandalController@h
 
 Route::get('/sandal/cari','App\Http\Controllers\SandalController@cari');
 Route::get('/sandal/view/{kodesandal}','App\Http\Controllers\SandalController@view');
+
+
+Route::get('/counter','App\Http\Controllers\CounterController@index');
+
+//route CRUD Karyawan EAS
+Route::get('/karyawan','App\Http\Controllers\KaryawanController@index');
+Route::get('/karyawan/tambahKaryawan','App\Http\Controllers\KaryawanController@tambah');
+Route::post('/karyawan/store','App\Http\Controllers\KaryawanController@store');
+Route::get('/karyawan/hapus/{kodepegawai}','App\Http\Controllers\KaryawanController@hapus');
