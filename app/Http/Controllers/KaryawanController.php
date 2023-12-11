@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Validation\Rule;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,27 +30,36 @@ class KaryawanController extends Controller
 
 	// method untuk insert data ke table karyawan
 	public function store(Request $request)
-	{
-        $request->validate([
-            'kodepegawai' =>
-                'required',
-                'max:5',
-            'namalengkap' => 'required|max:50',
-            'divisi' => 'required|max:20',
-            'departemen' => 'required|max:20',
-        ]);
+    {
+        try {
+            // Validasi data permintaan
+            $request->validate([
+                'kodepegawai' => 'required|max:5|unique:karyawan,kodepegawai',
+                'namalengkap' => 'required|max:50',
+                'divisi' => 'required|max:20',
+                'departemen' => 'required|max:20',
+            ]);
 
-        // insert data ke table karyawan
-		DB::table('karyawan')->insert([
-			'kodepegawai' => $request->kodepegawai,
-			'namalengkap' => $request->namalengkap,
-			'divisi' => $request->divisi,
-			'departemen' => $request->departemen
-		]);
-		// alihkan halaman ke halaman karyawan
-		return redirect('/karyawan')->with('success', 'Karyawan berhasil ditambahkan');
+            // Insert data ke tabel karyawan
+            DB::table('karyawan')->insert([
+                'kodepegawai' => $request->kodepegawai,
+                'namalengkap' => $request->namalengkap,
+                'divisi' => $request->divisi,
+                'departemen' => $request->departemen
+            ]);
 
-	}
+            return redirect('/karyawan')->with('success', 'Karyawan berhasil ditambahkan');
+        } catch (QueryException $e) {
+            if ($e->getCode() == '23000') {
+                dd($e->getMessage());
+                return redirect('/karyawan')->with('error', 'Kode Pegawai sudah ada. Silakan masukkan kode pegawai yang berbeda.');
+            }
+
+            // Jika bukan error Duplicate entry, lempar kembali exception
+            throw $e;
+        }
+    }
+
 
 	// method untuk hapus data karyawan
 	public function hapus($kodepegawai)

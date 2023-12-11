@@ -21,6 +21,7 @@
         <input type="submit" value="CARI" class="btn btn-primary">
     </form>
 
+
     <table class="table table-striped table-hover">
         <tr style="text-align: center;">
             <th>Kode Pegawai</th>
@@ -32,10 +33,6 @@
         @foreach ($karyawan as $k)
         <tr style="text-align: center">
             <td
-            @if($errors->has('kodepegawai'))
-                alert('Kode Pegawai sudah ada. Silakan masukkan kode pegawai yang berbeda.');
-                return false;
-            @endif
             >{{ $k->kodepegawai }}</td>
             <td>{{ strtoupper($k->namalengkap) }}</td>
             <td>{{ $k->divisi }}</td>
@@ -44,6 +41,12 @@
                 <a href="/karyawan/hapus/{{ $k->kodepegawai }}" class="btn btn-danger">Hapus</a>
             </td>
         </tr>
+        @if($errors->has('kodepegawai') && $errors->first('kodepegawai') == $k->kodepegawai)
+        <script>
+            alert("{{ $errors->first('kodepegawai') }}");
+        </script>
+    @endif
+
     @endforeach
 
     </table>
